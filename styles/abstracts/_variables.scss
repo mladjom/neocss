@@ -1,0 +1,168 @@
+// abstracts/_variables.scss
+@use "sass:map";
+
+// Color System
+$colors: (
+  'primary': (
+    'base': #d63a48,
+    'light': #e4696b,
+    'dark': #9e2833,
+  ),
+  // 'primary': (
+  //   'base': #3e89c6,
+  //   'light': #4dabf7,
+  //   'dark': #2e6794,
+  // ),
+  'neutral': (
+    'white': #ffffff,
+    'gray-100': #f8f9fa,
+    'gray-200': #e9ecef,
+    'gray-300': #dee2e6,
+    'gray-400': #ced4da,
+    'gray-500': #adb5bd,
+    'gray-600': #6c757d,
+    'gray-700': #495057,
+    'gray-800': #343a40,
+    'gray-900': #212529,
+    'black': #000000,
+  ),
+  'feedback': (
+    'success': #4CAF50,
+    'warning': #FFD700,
+    'error': #dc3545,
+    'info': #17a2b8,
+  )
+);
+
+// Typography
+$typography: (
+  'fonts': (
+    'primary': ('Inter', sans-serif),
+    'secondary': ('Georgia', serif),
+    'mono': ('JetBrains Mono', monospace),
+  ),
+  'weights': (
+    'regular': 400,
+    'medium': 500,
+    'semibold': 600,
+    'bold': 700,
+  ),
+  'sizes': (
+    'base': 1rem,
+    'scale': 1.25,
+    'xs': 0.75rem,
+    'sm': 0.875rem,
+    'md': 1rem,
+    'lg': 1.125rem,
+    'xl': 1.25rem,
+    '2xl': 1.5rem,
+    '3xl': 1.875rem,
+    '4xl': 2.25rem,
+  ),
+  'line-heights': (
+    'tight': 1.25,
+    'base': 1.5,
+    'relaxed': 1.75,
+  )
+);
+
+// Spacing
+$spacing: (
+  'unit': 0.25rem,
+  '0': 0,
+  '1': 0.25rem,
+  '2': 0.5rem,
+  '3': 0.75rem,
+  '4': 1rem,
+  '5': 1.25rem,
+  '6': 1.5rem,
+  '8': 2rem,
+  '10': 2.5rem,
+  '12': 3rem,
+  '16': 4rem,
+  '20': 5rem,
+);
+
+// Breakpoints
+$breakpoints: (
+  'xs': 0,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  '2xl': 1400px,
+);
+
+// Layout
+$layout: (
+  'container': (
+    'padding': map.get($spacing, '4'),
+    'max-width': map.get($breakpoints, 'xl'),
+  ),
+  'grid': (
+    'columns': 12,
+    'gap': map.get($spacing, '4'),
+  ),
+);
+
+// Z-index
+$z-index: (
+  'below': -1,
+  'base': 0,
+  'above': 1,
+  'header': 100,
+  'modal': 200,
+  'tooltip': 300,
+  'toast': 400,
+);
+
+// Border radius
+$radius: (
+  'none': 0,
+  'sm': 0.125rem,
+  'base': 0.25rem,
+  'md': 0.375rem,
+  'lg': 0.5rem,
+  'xl': 0.75rem,
+  'full': 9999px,
+);
+
+// Shadows
+$shadows: (
+  'none': none,
+  'sm': '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+  'base': '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+  'md': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+  'lg': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+  'xl': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+);
+
+// Transitions
+$transitions: (
+  'duration': (
+    'fast': 150ms,
+    'base': 200ms,
+    'slow': 300ms,
+  ),
+  'timing': (
+    'ease-in': cubic-bezier(0.4, 0, 1, 1),
+    'ease-out': cubic-bezier(0, 0, 0.2, 1),
+    'ease-in-out': cubic-bezier(0.4, 0, 0.2, 1),
+  ),
+);
+
+$animations: (
+  'duration': (
+    'instant': 100ms,
+    'fast': 200ms,
+    'normal': 300ms,
+    'slow': 500ms,
+    'slower': 700ms
+  ),
+  'timing': (
+    'bounce': cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    'in': cubic-bezier(0.4, 0, 1, 1),
+    'out': cubic-bezier(0, 0, 0.2, 1),
+    'in-out': cubic-bezier(0.4, 0, 0.2, 1)
+  )
+);

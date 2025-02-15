@@ -1,0 +1,26 @@
+// styles/layout/_navigation.scss
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
+
+.nav {
+  &__list {
+    @include mixins.flex(row, flex-start, center);
+    gap: functions.spacing('4');
+    list-style: none;
+  }
+
+  &__link {
+    @include mixins.text-style('sm', 'medium');
+    color: functions.color('neutral', 'gray-600');
+    @include mixins.transition(color);
+
+    &:hover {
+      color: functions.color('neutral', 'gray-900');
+    }
+
+    &--active {
+      color: functions.color('primary', 'base');
+    }
+  }
+}

@@ -1,0 +1,41 @@
+// base/_reset.scss
+@use "sass:map";
+@use "../abstracts/variables" as variables;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: map.get(variables.$typography, 'fonts', 'primary'); 
+  line-height: map.get(variables.$typography, 'line-heights', 'base'); 
+  color: map.get(variables.$colors, 'neutral', 'gray-900'); 
+  background-color: map.get(variables.$colors, 'neutral', 'white'); 
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}

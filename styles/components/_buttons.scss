@@ -1,0 +1,52 @@
+// styles/components/_buttons.scss
+@use "sass:map";
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
+
+.btn {
+  @include mixins.text-style('base', 'medium');
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: functions.spacing('2') functions.spacing('4');
+  border-radius: map.get(variables.$radius, 'base');
+  border: 1px solid transparent;
+  cursor: pointer;
+  @include mixins.transition((background-color, border-color, color, box-shadow));
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px functions.color('primary', 'light');
+  }
+
+  // Variants
+  &--primary {
+    background-color: functions.color('primary', 'base');
+    color: functions.color('neutral', 'white');
+
+    &:hover {
+      background-color: functions.color('primary', 'dark');
+    }
+  }
+
+  &--secondary {
+    background-color: functions.color('neutral', 'gray-200');
+    color: functions.color('neutral', 'gray-800');
+
+    &:hover {
+      background-color: functions.color('neutral', 'gray-300');
+    }
+  }
+
+  // Sizes
+  &--sm {
+    @include mixins.text-style('sm', 'medium');
+    padding: functions.spacing('1') functions.spacing('3');
+  }
+
+  &--lg {
+    @include mixins.text-style('lg', 'medium');
+    padding: functions.spacing('3') functions.spacing('6');
+  }
+}

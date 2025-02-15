@@ -1,0 +1,39 @@
+// styles/components/_forms.scss
+@use "sass:map";
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
+
+.form-group {
+  margin-bottom: functions.spacing('4');
+}
+
+.form-label {
+  display: block;
+  @include mixins.text-style('sm', 'medium');
+  color: functions.color('neutral', 'gray-700');
+  margin-bottom: functions.spacing('2');
+}
+
+.form-input {
+  width: 100%;
+  padding: functions.spacing('2') functions.spacing('3');
+  border: 1px solid functions.color('neutral', 'gray-300');
+  border-radius: map.get(variables.$radius, 'base');
+  background-color: functions.color('neutral', 'white');
+  @include mixins.transition(border-color);
+
+  &:focus {
+    outline: none;
+    border-color: functions.color('primary', 'base');
+    box-shadow: 0 0 0 2px functions.color('primary', 'light');
+  }
+
+  &::placeholder {
+    color: functions.color('neutral', 'gray-400');
+  }
+
+  &--error {
+    border-color: functions.color('feedback', 'error');
+  }
+}

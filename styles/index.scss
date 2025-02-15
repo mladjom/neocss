@@ -1,0 +1,22 @@
+// index.scss
+@use 'abstracts/variables';
+@use 'abstracts/functions';
+@use 'abstracts/mixins';
+@use 'abstracts/placeholders';
+
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/animations';
+
+@use 'layout/grid';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/navigation';
+
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+
+@use 'pages/home';
+@use 'pages/about';
+@use 'pages/contact';

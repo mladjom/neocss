@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NeoCSS – A Modern SCSS Framework by Neotec  
 
-## Getting Started
+🚀 **NeoCSS** is a structured, scalable, and lightweight **SCSS framework** designed for real-world projects. It provides a **modular architecture, reusable UI components**, and a well-organized alternative to utility-based CSS frameworks.  
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features  
+
+👉 **7-1 SCSS Architecture** – Organized for maintainability & scalability.  
+👉 **Reusable SCSS Components** – Prebuilt styles for buttons, forms, and more.  
+👉 **Lightweight & Customizable** – Minimalist by default, extend as needed.  
+👉 **Consistent Design System** – Variables, mixins, and functions for flexibility.  
+👉 **Optimized for Real-World Projects** – Built for production-ready web apps.  
+
+---
+
+## 📂 Project Structure  
+
+```
+.
+├── styles/          # Core SCSS files (7-1 architecture)
+├── app/             # Next.js application setup
+├── public/          # Static assets
+├── package.json     # Dependencies & scripts
+├── README.md        # Project documentation
+└── ...
+```  
+
+### **Key SCSS Directories:**  
+- `abstracts/` – Variables, mixins, functions, placeholders  
+- `base/` – Resets, typography, animations  
+- `components/` – Buttons, cards, forms, etc.  
+- `layout/` – Grid, header, footer, navigation  
+- `pages/` – Page-specific styles  
+
+---
+
+## 🚀 Getting Started  
+
+### 1️⃣ Install NeoCSS  
+
+```sh
+git clone https://github.com/Neotec/NeoCSS.git
+cd NeoCSS
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Import SCSS in Your Project  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Inside your main entry file (`layout.js` or `_app.js` in Next.js):  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```js
+import '@/styles/index.scss';
+```
 
-## Learn More
+### 3️⃣ Customize Variables  
 
-To learn more about Next.js, take a look at the following resources:
+Modify `styles/abstracts/_variables.scss` to change colors, spacing, and more.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📌 Best Practices  
 
-## Deploy on Vercel
+✔ Keep components modular and reusable.  
+✔ Follow the **7-1 SCSS pattern** for clean architecture.  
+✔ Use **SCSS mixins & functions** for consistency.  
+✔ Avoid unnecessary overrides; use the framework’s utilities first.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌍 Contributing  
+
+Want to improve NeoCSS? Feel free to fork the repo, submit issues, or create PRs. 🚀  
+
+---
+
+## 💜 License  
+
+NeoCSS is **open-source** under the **MIT License**.  
+

@@ -1,6 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+/node_modules/
+node_modules
+node_modules/
 /node_modules
 /.pnp
 .pnp.*
@@ -29,6 +32,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+package-lock.json
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -39,3 +43,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+*storybook.log
+.storybook/
+storyshots/
+
+.cache/
+*.log
+*.tmp
+
+*.map
+*.swp

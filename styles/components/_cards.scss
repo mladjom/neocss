@@ -1,0 +1,25 @@
+// styles/components/_cards.scss
+@use "sass:map";
+@use "../abstracts/variables" as variables;
+@use "../abstracts/functions" as functions;
+
+.card {
+  background-color: functions.color('neutral', 'white');
+  border-radius: map.get(variables.$radius, 'lg');
+  box-shadow: map.get(variables.$shadows, 'base');
+  overflow: hidden;
+
+  &__header {
+    padding: functions.spacing('4');
+    border-bottom: 1px solid functions.color('neutral', 'gray-200');
+  }
+
+  &__body {
+    padding: functions.spacing('4');
+  }
+
+  &__footer {
+    padding: functions.spacing('4');
+    border-top: 1px solid functions.color('neutral', 'gray-200');
+  }
+}

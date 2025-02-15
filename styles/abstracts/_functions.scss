@@ -1,0 +1,29 @@
+// abstracts/_functions.scss
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "../abstracts/variables" as variables;
+
+@function color($shade, $variant: 'base') {
+  @if map.has-key(variables.$colors, $shade) { 
+    @if meta.type-of(map.get(variables.$colors, $shade)) == 'map' { 
+      @return map.get(map.get(variables.$colors, $shade), $variant); 
+    }
+    @return map.get(variables.$colors, $shade); 
+  }
+  @error "Color `#{$shade}` not found.";
+}
+
+@function spacing($key) {
+  @if map.has-key(variables.$spacing, $key) { 
+    @return map.get(variables.$spacing, $key); 
+  }
+  @error "Spacing `#{$key}` not found.";
+}
+
+@function font-size($key) {
+  @if map.has-key(map.get(variables.$typography, 'sizes'), $key) { 
+    @return map.get(map.get(variables.$typography, 'sizes'), $key); 
+  }
+  @error "Font size `#{$key}` not found.";
+}

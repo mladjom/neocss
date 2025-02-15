@@ -1,0 +1,61 @@
+// styles/abstracts/_mixins.scss
+@use "sass:map";
+@use "../abstracts/variables" as variables;
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key(variables.$breakpoints, $breakpoint) { 
+    @media (min-width: map.get(variables.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint `#{$breakpoint}` not found.";
+  }
+}
+
+@mixin container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: map.get(map.get(variables.$layout, 'container'), 'padding');
+  max-width: map.get(map.get(variables.$layout, 'container'), 'max-width');
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin grid($columns: 12, $gap: map.get(map.get(variables.$layout, 'grid'), 'gap')) {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax(0, 1fr));
+  gap: $gap;
+}
+
+@mixin text-style($size: 'base', $weight: 'regular', $line-height: 'base') {
+  font-size: map.get(variables.$typography, 'sizes', $size);
+  font-weight: map.get(map.get(variables.$typography, 'weights'), $weight);
+  line-height: map.get(map.get(variables.$typography, 'line-heights'), $line-height);
+}
+
+@mixin transition($property: all, $duration: 'base', $timing: 'ease-in-out') {
+  transition-property: $property;
+  transition-duration: map.get(map.get(variables.$transitions, 'duration'), $duration);
+  transition-timing-function: map.get(map.get(variables.$transitions, 'timing'), $timing);
+}
+
+// Function to get spacing values
+@function spacing($key) {
+  @return map.get(variables.$spacing, $key);
+}
+
+// Function to get color values
+@function color($palette, $shade) {
+  @return map.get(map.get(variables.$colors, $palette), $shade);
+}
+
+// Function to get font sizes
+@function font-size($size) {
+  @return map.get(variables.$typography, 'sizes', $size);
+}

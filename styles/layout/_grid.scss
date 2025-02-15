@@ -1,0 +1,36 @@
+// layout/_grid.scss
+@use "sass:map";
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
+
+.container {
+    @include mixins.container;
+  }
+  
+  .grid {
+    @include mixins.grid;
+  
+  // Column spans (DRY - Don't Repeat Yourself)
+  @for $i from 1 through map.get(variables.$layout, 'grid', 'columns') {
+    &__col-#{$i} {
+      grid-column: span $i;
+    }
+  }
+  
+  // Responsive columns (More Efficient and Readable)
+  @each $breakpoint, $value in variables.$breakpoints { 
+    @include mixins.respond-to($breakpoint) {
+      @for $i from 1 through map.get(variables.$layout, 'grid', 'columns') { 
+        &__col-#{$breakpoint}-#{$i} {
+          grid-column: span $i;
+        }
+      }
+    }
+  }
+
+  // Optional: Add gutters (if not included in your grid mixin)
+  &--gutters {
+    gap: map.get(variables.$layout, 'grid', 'gap'); // Or a multiplier of your gap variable
+  }
+}

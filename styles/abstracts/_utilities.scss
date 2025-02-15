@@ -1,0 +1,33 @@
+// Utility animation classes
+.animate {
+    &-fadeIn {
+      animation: fadeIn map-get(map-get($animations, 'duration'), 'normal') 
+                map-get(map-get($animations, 'timing'), 'out') forwards;
+    }
+    
+    &-slideInUp {
+      animation: slideInUp map-get(map-get($animations, 'duration'), 'normal')
+                map-get(map-get($animations, 'timing'), 'out') forwards;
+    }
+    
+    &-scaleIn {
+      animation: scaleIn map-get(map-get($animations, 'duration'), 'normal')
+                map-get(map-get($animations, 'timing'), 'out') forwards;
+    }
+  }
+  
+  // Animation Mixins
+  @mixin animate($animation, $duration: 'normal', $timing: 'out', $delay: 0s) {
+    animation: $animation map-get(map-get($animations, 'duration'), $duration)
+               map-get(map-get($animations, 'timing'), $timing) $delay forwards;
+  }
+  
+  @mixin animate-children($animation, $delay-between: 0.1s) {
+    & > * {
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          animation-delay: $delay-between * $i;
+        }
+      }
+    }
+  }
