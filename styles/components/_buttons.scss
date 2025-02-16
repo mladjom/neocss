@@ -5,7 +5,6 @@
 @use "../abstracts/functions" as functions;
 
 .btn {
-  @include mixins.text-style('base', 'medium');
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +13,13 @@
   border: 1px solid transparent;
   cursor: pointer;
   @include mixins.transition((background-color, border-color, color, box-shadow));
+  @include mixins.text-style('base', 'medium');
+
+    &:active {
+      transform: scale(0.98);
+      transition: transform map-get(map-get(variables.$animations, 'duration'), 'instant')
+                  map-get(map-get(variables.$animations, 'timing'), 'in-out');
+    }
 
   &:focus {
     outline: none;
@@ -41,12 +47,12 @@
 
   // Sizes
   &--sm {
-    @include mixins.text-style('sm', 'medium');
     padding: functions.spacing('1') functions.spacing('3');
+    @include mixins.text-style('sm', 'medium');
   }
 
   &--lg {
-    @include mixins.text-style('lg', 'medium');
     padding: functions.spacing('3') functions.spacing('6');
+    @include mixins.text-style('lg', 'medium');
   }
 }

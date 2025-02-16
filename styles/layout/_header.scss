@@ -1,24 +1,19 @@
 // styles/layout/_header.scss
 @use "sass:map";
-@use "../abstracts/variables" as variables; // Import _variables.scss with namespace
-@use "../abstracts/mixins" as mixins;   // Import mixins
-@use "../abstracts/functions" as functions; // Import _functions.scss with namespace
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
 
 .header {
   position: sticky;
   top: 0;
-  z-index: map.get(variables.$z-index, 'header'); // Use variables.
-  background-color: functions.color('neutral', 'white'); // Use functions.
-  border-bottom: 1px solid functions.color('neutral', 'gray-200'); // Use functions.
+  z-index: map.get(variables.$z-index, 'header');
+  background-color: functions.color('neutral', 'white');
+  border-bottom: 1px solid functions.color('neutral', 'gray-200');
 
   &__container {
-    @include mixins.container; // Use mixins
-    @include mixins.flex(row, space-between, center); // Use mixins
-    height: functions.spacing('16'); // Use functions.
-  }
-
-  &__nav {
-    @include mixins.flex(row, flex-start, center); // Use mixins
-    gap: functions.spacing('6'); // Use functions.
+    height: functions.spacing('16');
+    @include mixins.container;
+    @include mixins.flex(row, space-between, center);
   }
 }

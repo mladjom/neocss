@@ -1,25 +1,25 @@
 // styles/layout/_footer.scss
-@use "../abstracts/variables" as variables; // Import _variables.scss with namespace
-@use "../abstracts/mixins" as mixins;   // Import mixins with namespace
-@use "../abstracts/functions" as functions; // Import _functions.scss with namespace
+@use "../abstracts/variables" as variables; 
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
 
 
 .footer {
-  background-color: functions.color('neutral', 'gray-100'); // Use functions.
-  padding: functions.spacing('12') 0; // Use functions.
-  margin-top: functions.spacing('20'); // Use functions.
+  background-color: functions.color('neutral', 'gray-100');
+  padding: functions.spacing('12') 0;
+  margin-top: functions.spacing('20');
 
   &__container {
-    @include mixins.container; // Use mixins
-    @include mixins.grid(4); // Use mixins
-    gap: functions.spacing('8'); // Use functions.
+    @include mixins.container; 
+    @include mixins.grid(4); 
+    gap: functions.spacing('8');
   }
 
   &__copyright {
     grid-column: 1 / -1;
     text-align: center;
-    color: functions.color('neutral', 'gray-600'); // Use functions.
-    padding-top: functions.spacing('8'); // Use functions.
-    border-top: 1px solid functions.color('neutral', 'gray-200'); // Use functions.
+    color: functions.color('neutral', 'gray-600');
+    padding-top: functions.spacing('8');
+    border-top: 1px solid functions.color('neutral', 'gray-200');
   }
 }

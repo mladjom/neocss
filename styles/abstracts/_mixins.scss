@@ -20,11 +20,13 @@
 }
 
 @mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-  flex-wrap: $wrap;
+  & {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $align;
+  }
 }
 
 @mixin grid($columns: 12, $gap: map.get(map.get(variables.$layout, 'grid'), 'gap')) {
@@ -58,4 +60,20 @@
 // Function to get font sizes
 @function font-size($size) {
   @return map.get(variables.$typography, 'sizes', $size);
+}
+
+// Animation Mixins
+@mixin animate($animation, $duration: 'normal', $timing: 'out', $delay: 0s) {
+  animation: $animation map-get(map-get(variables.$animations, 'duration'), $duration)
+             map-get(map-get(variables.$animations, 'timing'), $timing) $delay forwards;
+}
+
+@mixin animate-children($animation, $delay-between: 0.1s) {
+  & > * {
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: $delay-between * $i;
+      }
+    }
+  }
 }

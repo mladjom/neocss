@@ -2,12 +2,14 @@
 @use "sass:map";
 @use "../abstracts/variables" as variables;
 @use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
 
 .card {
   background-color: functions.color('neutral', 'white');
   border-radius: map.get(variables.$radius, 'lg');
-  box-shadow: map.get(variables.$shadows, 'base');
+  box-shadow: map.get(variables.$shadows, 'sm');
   overflow: hidden;
+  @include mixins.animate(scaleIn);
 
   &__header {
     padding: functions.spacing('4');

@@ -5,14 +5,15 @@
 
 .nav {
   &__list {
-    @include mixins.flex(row, flex-start, center);
-    gap: functions.spacing('4');
     list-style: none;
+    gap: functions.spacing('6');
+    @include mixins.flex(row, flex-start, center);
+    @include mixins.animate-children(slideInDown, 0.5s);
   }
 
   &__link {
-    @include mixins.text-style('sm', 'medium');
     color: functions.color('neutral', 'gray-600');
+    @include mixins.text-style('sm', 'medium');
     @include mixins.transition(color);
 
     &:hover {
