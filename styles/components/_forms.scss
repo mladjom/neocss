@@ -27,6 +27,8 @@
     outline: none;
     border-color: functions.color('primary', 'base');
     box-shadow: 0 0 0 2px functions.color('primary', 'light');
+    transition: all map.get(map.get(variables.$animations, 'duration'), 'fast')
+                map.get(map.get(variables.$animations, 'timing'), 'out');
   }
 
   &::placeholder {

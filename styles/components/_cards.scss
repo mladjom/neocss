@@ -11,6 +11,13 @@
   overflow: hidden;
   @include mixins.animate(scaleIn);
 
+  &:hover {
+    transform: translateY(-2px);
+    transition: transform map.get(map.get(variables.$animations, 'duration'), 'fast')
+                map.get(map.get(variables.$animations, 'timing'), 'bounce');
+  }
+
+
   &__header {
     padding: functions.spacing('4');
     border-bottom: 1px solid functions.color('neutral', 'gray-200');

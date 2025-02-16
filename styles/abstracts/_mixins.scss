@@ -64,8 +64,8 @@
 
 // Animation Mixins
 @mixin animate($animation, $duration: 'normal', $timing: 'out', $delay: 0s) {
-  animation: $animation map-get(map-get(variables.$animations, 'duration'), $duration)
-             map-get(map-get(variables.$animations, 'timing'), $timing) $delay forwards;
+  animation: $animation map.get(map.get(variables.$animations, 'duration'), $duration)
+             map.get(map.get(variables.$animations, 'timing'), $timing) $delay forwards;
 }
 
 @mixin animate-children($animation, $delay-between: 0.1s) {

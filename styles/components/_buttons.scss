@@ -17,8 +17,8 @@
 
     &:active {
       transform: scale(0.98);
-      transition: transform map-get(map-get(variables.$animations, 'duration'), 'instant')
-                  map-get(map-get(variables.$animations, 'timing'), 'in-out');
+      transition: transform map.get(map.get(variables.$animations, 'duration'), 'instant')
+                  map.get(map.get(variables.$animations, 'timing'), 'in-out');
     }
 
   &:focus {
