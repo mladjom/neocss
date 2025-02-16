@@ -1,4 +1,7 @@
+"use client";
+
 // components/PageTransition.js
+
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
