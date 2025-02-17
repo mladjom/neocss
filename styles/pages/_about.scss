@@ -1,0 +1,40 @@
+// pages/_about.scss
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
+
+.about {
+    &__header {
+      padding: functions.spacing('12') 0;
+      background-color: functions.color('primary', 'light');
+      color: functions.color('neutral', 'white');
+      text-align: center;
+    }
+  
+    &__content {
+      padding: functions.spacing('12') 0;
+      
+      &-grid {
+        @include mixins.grid(12);
+        gap: functions.spacing('8');
+      }
+      
+      &-main {
+        grid-column: span 8;
+      }
+      
+      &-sidebar {
+        grid-column: span 4;
+      }
+    }
+  
+    &__team {
+      padding: spacing('12') 0;
+      background-color: functions.color('neutral', 'gray-50');
+      
+      &-grid {
+        @include mixins.grid(4);
+        gap: functions.spacing('6');
+      }
+    }
+  }

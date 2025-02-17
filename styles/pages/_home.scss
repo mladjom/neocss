@@ -1,0 +1,39 @@
+// pages/_home.scss
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
+
+.home {
+    &__hero {
+      padding: functions.spacing('16') 0;
+      background-color: functions.color('neutral', 'gray-50');
+      
+      &-content {
+        @include mixins.grid(12);
+        gap: functions.spacing('8');
+      }
+      
+      &-text {
+        grid-column: span 6;
+        @include mixins.animate(slideInLeft, 'normal', 'out');
+      }
+      
+      &-image {
+        grid-column: span 6;
+        @include mixins.animate(slideInRight, 'normal', 'out');
+      }
+    }
+  
+    &__features {
+      padding: functions.spacing('12') 0;
+      
+      &-grid {
+        @include mixins.grid(3);
+        gap: functions.spacing('6');
+      }
+      
+      &-card {
+        @include mixins.animate(fadeIn);
+        animation-delay: calc(var(--card-index) * 0.1s);
+      }
+    }
+  }
