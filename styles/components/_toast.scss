@@ -1,0 +1,22 @@
+// styles/components/_toast.scss
+@use "sass:map";
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
+.toast {
+    position: fixed;
+    bottom: functions.spacing('4');
+    right: functions.spacing('4');
+    background: functions.color('neutral', 'white');
+    padding: functions.spacing('4');
+    border-radius: map.get(variables.$radius, 'md');
+    box-shadow: map.get(variables.$shadows, 'lg');
+    max-width: 350px;
+    z-index: map.get(variables.$z-index, 'toast');
+    
+    &__close {
+      position: absolute;
+      top: functions.spacing('2');
+      right: functions.spacing('2');
+    }
+  }

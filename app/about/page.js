@@ -2,6 +2,21 @@
 import { teamMembers } from '@/content/team';
 import Card from "@/components/Card";
 
+export const metadata = {
+  title: 'About Us | My Website',
+  description: 'Learn more about our company and team.',
+  openGraph: {
+    title: 'About Us',
+    description: 'Learn more about our company and team.',
+    // ... other Open Graph properties
+  },
+  twitter: {
+    handle: '@mywebsite',
+    cardType: 'summary_large_image',
+  },
+  // ... other metadata options
+};
+
 export default function About() {
     return (
       <>

@@ -1,0 +1,26 @@
+// styles/components/_modal.scss
+@use "sass:map";
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/functions" as functions;
+
+.modal {
+    &__backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(functions.color('neutral', 'black'), 0.5);
+      z-index: map.get(variables.$z-index, 'modal');
+      @include mixins.flex(row, center, center);
+    }
+  
+    &__content {
+      background: functions.color('neutral', 'white');
+      border-radius: map.get(variables.$radius, 'lg');
+      padding: mixins.spacing('6');
+      max-width: 90vw;
+      width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+  }

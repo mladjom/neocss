@@ -1,0 +1,20 @@
+// styles/components/_logo.scss
+@use "../abstracts/variables" as variables;
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
+
+.logo {
+    gap: functions.spacing('2');
+    @include mixins.flex(row, flex-start, center);
+    
+    &__icon {
+      width: functions.spacing('8');
+      height: functions.spacing('8');
+      color: functions.color('primary', 'base');
+    }
+    
+    &__text {
+      color: functions.color('neutral', 'gray-900');
+      @include mixins.text-style('xl', 'bold');
+    }
+  }

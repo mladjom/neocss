@@ -4,38 +4,62 @@
 @use "../abstracts/mixins" as mixins;
 @use "../abstracts/functions" as functions;
 
-.form-group {
-  margin-bottom: functions.spacing('4');
-}
-
-.form-label {
-  display: block;
-  @include mixins.text-style('sm', 'medium');
-  color: functions.color('neutral', 'gray-700');
-  margin-bottom: functions.spacing('2');
-}
-
-.form-input {
-  width: 100%;
-  padding: functions.spacing('2') functions.spacing('3');
-  border: 1px solid functions.color('neutral', 'gray-300');
-  border-radius: map.get(variables.$radius, 'base');
-  background-color: functions.color('neutral', 'white');
-  @include mixins.transition(border-color);
-
-  &:focus {
-    outline: none;
-    border-color: functions.color('primary', 'base');
-    box-shadow: 0 0 0 2px functions.color('primary', 'light');
-    transition: all map.get(map.get(variables.$animations, 'duration'), 'fast')
-                map.get(map.get(variables.$animations, 'timing'), 'out');
+.form {
+  &__group {
+    position: relative;
+    margin-bottom: mixins.spacing('4');
   }
 
-  &::placeholder {
-    color: functions.color('neutral', 'gray-400');
+  &__input {
+    width: 100%;
+    padding: mixins.spacing('2') mixins.spacing('3');
+    border: 1px solid functions.color('neutral', 'gray-300');
+    border-radius: map.get(variables.$radius, 'base');
+    transition: all map.get(map-get(variables.$transitions, 'duration'), 'fast');
+
+    &--error {
+      border-color: functions.color('feedback', 'error');
+      background-color: rgba(functions.color('feedback', 'error'), 0.05);
+    }
+
+    &--success {
+      border-color: functions.color('feedback', 'success');
+      background-color: rgba(functions.color('feedback', 'success'), 0.05);
+    }
   }
 
-  &--error {
-    border-color: functions.color('feedback', 'error');
+  &__error {
+    color: functions.color('feedback', 'error');
+    font-size: functions.font-size('sm');
+    margin-top: mixins.spacing('1');
+    display: flex;
+    align-items: center;
+    gap: mixins.spacing('1');
+
+    &-icon {
+      width: mixins.spacing('4');
+      height: mixins.spacing('4');
+    }
+  }
+
+  &__feedback {
+    position: absolute;
+    right: mixins.spacing('3');
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    
+    &--error {
+      color: functions.color('feedback', 'error');
+    }
+    
+    &--success {
+      color: functions.color('feedback', 'success');
+    }
+  }
+
+  &__required {
+    color: functions.color('feedback', 'error');
+    margin-left: mixins.spacing('1');
   }
 }
