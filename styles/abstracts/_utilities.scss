@@ -31,3 +31,12 @@
       }
     }
   }
+
+  // Page transition animations
+.page-enter {
+  @include animate(fadeIn, 'normal', 'out');
+}
+
+.page-exit {
+  @include animate(fadeOut, 'fast', 'in');
+}

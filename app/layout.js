@@ -1,8 +1,11 @@
 // app/layout.js
+import { Roboto } from 'next/font/google' 
 import "@/styles/index.scss";
 import PageTransition from "@/components/PageTransition";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const inter = Roboto({ subsets: ['latin'] }) 
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body  className={inter.className}>
         <PageTransition>
           <Header />
           <main className="container">{children}</main>

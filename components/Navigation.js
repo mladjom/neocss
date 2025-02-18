@@ -13,7 +13,7 @@ const Navigation = () => {
       <ul className="nav__list">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="nav__link"> {/* Use Next.js Link */}
+            <Link href={link.href} className="nav__link"> 
               {link.label}
             </Link>
           </li>
