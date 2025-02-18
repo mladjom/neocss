@@ -1,6 +1,6 @@
 // stories/FormInput.stories.js
 import React from 'react';
-import FormInput from '../components/Form/Input'; // Adjust path as needed
+import FormInput from '@/components/Form/Input'; // Adjust path as needed
 
 export default {
   title: 'Components/Form/Input',

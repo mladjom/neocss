@@ -15,7 +15,7 @@
     padding: mixins.spacing('2') mixins.spacing('3');
     border: 1px solid functions.color('neutral', 'gray-300');
     border-radius: map.get(variables.$radius, 'base');
-    transition: all map.get(map-get(variables.$transitions, 'duration'), 'fast');
+    transition: all map.get(map.get(variables.$transitions, 'duration'), 'fast');
 
     &--error {
       border-color: functions.color('feedback', 'error');
@@ -42,6 +42,92 @@
     }
   }
 
+  &__textarea {
+    width: 100%;
+    padding: mixins.spacing('2') mixins.spacing('3');
+    border: 1px solid functions.color('neutral', 'gray-300');
+    border-radius: map.get(variables.$radius, 'base');
+    transition: all map.get(map.get(variables.$transitions, 'duration'), 'fast');
+    resize: vertical; // Allow vertical resizing
+
+    &--error {
+      border-color: functions.color('feedback', 'error');
+      background-color: rgba(functions.color('feedback', 'error'), 0.05);
+    }
+
+    &--success {
+      border-color: functions.color('feedback', 'success');
+      background-color: rgba(functions.color('feedback', 'success'), 0.05);
+    }
+  }
+
+  &__select {
+    width: 100%;
+    padding: mixins.spacing('2') mixins.spacing('3');
+    border: 1px solid functions.color('neutral', 'gray-300');
+    border-radius: map.get(variables.$radius, 'base');
+    appearance: none; // Remove default select styling
+    background-color: functions.color('neutral', 'white');
+    //background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); // Add dropdown arrow
+    background-repeat: no-repeat;
+    background-position: right mixins.spacing('2') center;
+    padding-right: mixins.spacing('6'); // Adjust padding for arrow
+
+    &--error {
+      border-color: functions.color('feedback', 'error');
+    }
+
+    &--success {
+      border-color: functions.color('feedback', 'success');
+    }
+  }
+
+  &__checkbox,
+  &__radio {
+    appearance: none; // Remove default appearance
+    width: mixins.spacing('4');
+    height: mixins.spacing('4');
+    border: 1px solid functions.color('neutral', 'gray-300');
+    border-radius: map.get(variables.$radius, 'sm'); // Slightly rounded for checkboxes
+    cursor: pointer;
+    margin-right: mixins.spacing('2'); // Space between input and label
+    vertical-align: middle; // Align with label
+    position: relative; // For custom checkmark/dot
+
+    &:checked {
+      border-color: functions.color('primary', 'base'); // Highlight checked state
+      background-color: functions.color('primary', 'base');
+
+      &::before { // Custom checkmark/dot (pseudo-element)
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: functions.color('neutral', 'white');
+        border-radius: 50%; // For radio buttons
+        width: mixins.spacing('2');
+        height: mixins.spacing('2');
+      }
+    }
+
+    &:focus {
+        outline: 2px solid functions.color('primary', 'light');
+    }
+
+    &--error {
+      border-color: functions.color('feedback', 'error');
+    }
+
+    &--success {
+      border-color: functions.color('feedback', 'success');
+    }
+  }
+
+  &__radio {
+    border-radius: 50%; // Fully rounded for radio buttons
+  }
+
   &__feedback {
     position: absolute;
     right: mixins.spacing('3');
@@ -62,4 +148,7 @@
     color: functions.color('feedback', 'error');
     margin-left: mixins.spacing('1');
   }
+
+
+  
 }
